@@ -1,0 +1,76 @@
+Define a Structure to store name, account number and balance of customers in a
+bank.
+Get the number of customers of the bank.
+Get the name, account number and balanace of customers from the user.
+Write a function to print the names of customers having balance less than
+Rs.2000.Write a function to add an interest of 5% to the balance of customers
+having more than Rs.10000 in their balance. Print the details of customers who got
+interest added.
+
+Input
+3
+Raju
+9999     //ac
+3000     //balance  
+Ramu
+8888     //ac 
+11000    //balance
+Rama
+7777     //ac
+1200     //balance
+Expected output
+Ramu
+8888
+11550
+Rama
+
+
+code:
+#include <stdio.h>
+#include<string.h>
+
+
+struct customers
+             {char name[30];
+              int acnum;
+              int balance;
+             };
+             
+ 
+int interest(struct customers obj[],int n) 
+           {   int i;
+               for(i=0;i<n;i++)
+                      {if((obj[i].balance)>10000)
+                                 {(obj[i].balance)+=0.05*(obj[i].balance);
+                                 printf("%s\n",obj[i].name);
+                                 printf("%d\n",obj[i].acnum);
+                                 printf("%d\n",obj[i].balance);
+                                 
+                                 }
+                      }
+           }          
+           
+int lessthan(struct customers obj[],int n) 
+           {   int i;
+               for(i=0;i<n;i++)
+                      {if((obj[i].balance)<2000)
+                               {
+                                printf("%s",obj[i].name);}  
+                      }   
+           }                 
+           
+int main() {
+           int n,i,ACNUM,BALANCE;
+           char NAME[30];
+           scanf("%d",&n); 
+           struct customers obj[n];
+                                                       
+           for(i=0;i<n;i++)
+                  { scanf("%s",obj[i].name);
+                    scanf("%d",&obj[i].acnum);
+                    scanf("%d",&obj[i].balance);
+                   } 
+            interest(obj,n);
+            lessthan(obj,n);          
+                     
+} 
