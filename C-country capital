@@ -1,0 +1,111 @@
+Write a C program that accepts the name of a country as input and displays the corresponding capital, and vice versa. Design the program so that it executes repeatedly, until the word End is entered as input. Use array of strings.
+
+
+Database contains the details of the following country.
+
+India
+Australia
+Bangladesh
+Bhutan
+Canada
+China
+Japan
+
+
+
+Input
+India
+Australia
+Bangladesh
+Bhutan
+Canada
+China
+Japan
+End
+
+Expected output
+New Delhi
+Canberra
+Dhaka
+Thimpu
+Ottawa
+Beijing
+Tokyo
+
+CODE:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char countries[][20] = {"India", "Australia", "Bangladesh", "Bhutan", "Canada", "China", "Japan"};
+    char capitals[][20] = {"New Delhi", "Canberra", "Dhaka", "Thimpu", "Ottawa", "Beijing", "Tokyo"};
+    char input[20];
+    int i, index = -1;
+    while (1) {
+        scanf("%s", input);
+        if (strcmp(input, "End") == 0) {
+            break;
+        }
+
+       
+        for (i = 0; i < 7; i++) {
+            if (strcmp(input, countries[i]) == 0) {
+                printf("%s\n", capitals[i]);
+                index = i;
+                break;
+            }
+        }
+
+        
+        if (index == -1) {
+            for (i = 0; i < 7; i++) {
+                if (strcmp(input, capitals[i]) == 0) {
+                    printf("%s\n", country[i]);
+                    break;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+own written
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char entry[20];
+    char countries[][20] = {"India", "Australia", "Bangladesh", "Bhutan", "Canada", "China", "Japan"};
+    int size=sizeof(countries)/sizeof(countries[0]);
+    char capitals[][20] = {"New Delhi", "Canberra", "Dhaka", "Thimpu", "Ottawa", "Beijing", "Tokyo"};
+    int i,index=-7;
+   
+    
+    while(1)
+        {scanf("%s",entry);
+         if (strcmp(entry,"End")==0)
+                        {break;}
+         for(i=0;i<size-0;i++)
+                     { if(strcmp(entry,countries[i])==0)
+                                  {printf("%s\n",capitals[i]);
+                                   index=i;
+                                   
+                                  }
+                     }              
+         if(index==-7){          
+         for(i=0;i<size-0;i++) 
+                     { if(strcmp(entry,capitals[i])==0)
+                                 {printf("%s\n",countries[i]);
+                                  
+                                 }
+                     }
+         }
+        
+            
+        }
+}
