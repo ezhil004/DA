@@ -1,0 +1,55 @@
+Pointers-Q2
+Read a text till the you enter END. It can be multiple lines. Find the number of words, sentences present in the given input
+
+Input
+A new tool has been launched to detect AI generated text in what could be a huge setback for students looking to cut corners. ChatGPT was launched in late 2022 and has taken the internet by storm. It's hard to imagine the internet without Google.
+
+The tech giant has become so synonymous with searching the web that it has become a verb we don't look it up, we Google it END.
+Expected output
+70
+4
+
+
+code:
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char input[1000];
+    int word_count = 0;
+    int sentence_count = 0;
+
+    printf("Enter input (type END to finish):\n");
+
+    // read input until the user enters "END"
+    while (fgets(input, sizeof(input), stdin)) {
+        // remove newline character from input
+        input[strcspn(input, "\n")] = '\0';
+
+        // check if user entered "END" to finish
+        if (strcmp(input, "END") == 0) {
+            break;
+        }
+
+        // iterate through characters in input
+        for (int i = 0; i < strlen(input); i++) {
+            // check if character is a letter or number (part of a word)
+            if (isalnum(input[i])) {
+                // if at beginning of word, increment word count
+                if (i == 0 || !isalnum(input[i - 1])) {
+                    word_count++;
+                }
+            }
+            // check if character is a period, exclamation point, or question mark (end of a sentence)
+            else if (input[i] == '.' || input[i] == '!' || input[i] == '?') {
+                sentence_count++;
+            }
+        }
+    }
+
+    printf("Number of words: %d\n", word_count);
+    printf("Number of sentences: %d\n", sentence_count);
+
+    return 0;
+}
