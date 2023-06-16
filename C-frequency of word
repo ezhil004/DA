@@ -1,0 +1,39 @@
+frequency of word
+
+code:
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int freq(char *word,char *str);
+int main()
+     {  int c;
+        char str[1000];
+        char word[20];
+        fgets(str,1000,stdin);
+        fgets(word,20,stdin);
+        c=freq(word,str);
+        printf("%d",c);
+     }
+
+int freq(char *word,char *str) 
+    {        int i,j,found,count,stringlen,searchlen;
+             stringlen=strlen(str);
+             searchlen=strlen(word);
+             count=0;
+             for(i=0;i<=stringlen-searchlen;i++)
+             {       found=1;
+                     for(j=0;j<searchlen;j++)
+                                  {if (str[i+j]!=word[j])
+                                        {   found=0;
+                                            break;
+                                        }
+                                  }
+                     if(found==1)
+                          {count++;}
+             }
+             return count;
+    }             
+
+
+input :My student is the best student 
+student
