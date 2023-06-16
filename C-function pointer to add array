@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+int i;
+int *fstad()
+         {int* ptr;
+         ptr=(int*)malloc(3*sizeof(int));
+         for(i=0;i<3;i++)             
+                    {scanf("%d",ptr+i);}
+        return ptr;
+             
+         }            
+ 
+
+
+int main()
+{       int *AH;
+        AH=fstad();
+        for(i=0;i<3;i++)             
+                    {printf("%d",*(AH+i));}
+                                                    
+        return 0;
+}
