@@ -1,0 +1,98 @@
+Write a menu driven program to perform the following any of the following operations. Hint: Get the choice of the menu from the user and do the operation
+
+Get a number from the user along with the choice and find
+
+1. the number of digits in the given number
+
+2. the count of the digits being odd
+
+3. the sum of all the digits of the given number
+
+4. reverse of the digits of the given number
+
+5. the word equivalent of the given number
+
+Till the user enters choice 0, the execution should continue.
+
+When the user enters 0, display a Thank you message and exit the program
+
+
+
+input
+#include<stdio.h>
+int main()
+{   int num,choice,size=0,odd=0,net,i,sum=0,rev=0,k=1;
+    char *digits[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    while(k!=0)
+    { scanf("%d",&num);
+      scanf("%d",&choice);
+     
+      
+      switch(choice)
+      {
+       case 1:
+        {   for(i=num;i>0;i=i/10)
+            {             size++;
+                          
+            }
+            printf("%d\n",size);
+            break;
+        }    
+  
+       case 2:
+        {   for(i=num;i>0;i=i/10)
+            {        net=i%10;
+                     if (net%2!=0)
+                              {odd+=1;}
+                              
+            }
+            printf("%d\n",odd);
+            break;
+        }    
+       case 3:
+            for(i=num;i>0;i=i/10)
+            {            net=i%10;
+                         sum=sum+net;
+            }   
+            printf("%d\n",sum);
+            break;
+       case 4:
+          for(i=num;i>0;i=i/10)
+               {            net=i%10;
+                            rev=(rev*10)+net;
+               }   
+               printf("%d\n",rev);
+               break;
+        case 5:
+               for(i=num;i>0;i=i/10)
+               {            net=i%10;
+                            rev=(rev*10)+net;
+               }   
+               for(i=rev;i>0;i=i/10) 
+                         {
+                         net = rev % 10;
+                         printf("%s ", digits[net]);
+                         rev /= 10;
+                         }
+                printf("\n");         
+        case 0:
+              break;
+              
+      }  
+            
+      scanf("%d",&k);                   
+    }      
+    printf("Thank you ");
+  
+}
+output:
+five two eight nine
+Thank you
+
+Input
+5289
+5
+0
+Expected output
+five two eight nine
+Thank you
