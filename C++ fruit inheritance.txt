@@ -1,0 +1,62 @@
+Make a class named Fruit with a data member to calculate the number of fruits in a basket. Create two other class named Apples and Mangoes to calculate the number of apples and mangoes in the basket. Print the number of fruits of each type and the total number of fruits in the basket.c++ program using inheritance
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Fruit {
+protected:
+    int numFruits;                                  //derived class access panna PROTECTED
+
+public:
+    Fruit() {
+        numFruits = 0;
+    }
+
+    void setNumFruits(int num) {
+        numFruits = num;
+    }
+
+    int getNumFruits() {
+        return numFruits;                        //ullaye display add pannita simple ah mudinjirum
+    }
+};
+
+// Derived class
+class Apples : public Fruit {
+public:
+    void display() {
+        cout << "Number of Apples: " << getNumFruits() << endl;     // 
+    }
+};
+
+// Derived class
+class Mangoes : public Fruit {
+public:
+    void display() {
+        cout << "Number of Mangoes: " << getNumFruits() << endl;
+    }
+};
+
+int main() {
+    Apples appleBasket;
+    Mangoes mangoBasket;
+
+    int numApples, numMangoes;
+
+    cout << "Enter the number of apples: ";
+    cin >> numApples;
+    appleBasket.setNumFruits(numApples);
+
+    cout << "Enter the number of mangoes: ";
+    cin >> numMangoes;
+    mangoBasket.setNumFruits(numMangoes);
+
+    appleBasket.display();                                                      
+    mangoBasket.display();
+
+    int totalFruits = appleBasket.getNumFruits() + mangoBasket.getNumFruits();
+    cout << "Total number of fruits in the basket: " << totalFruits << endl;
+
+    return 0;
+}
