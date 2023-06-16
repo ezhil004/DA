@@ -1,0 +1,95 @@
+stu details inherritance
+Program Question: Create a base class called "Person" with data members for name and age. Derive a class called "Student" from the Person class with an additional data member for the roll number. Implement appropriate member functions to input and display the details of a student. Write a program that creates an object of the Student class, inputs the student's details, and displays them.
+
+Sample Input:
+Name: John Doe
+Age: 20
+Roll Number: 12345
+
+Sample Output:
+Student Details:
+Name: John Doe
+Age: 20
+Roll Number: 12345
+
+
+
+_________________________________________
+
+
+
+#include<iostream>
+using namespace std;
+class person{
+    protected:
+          string name;
+          int age;
+    public:
+          void setinfo()
+              {cout<<"enter name"<<endl;
+               cin>>name;
+               cout<<"enter age"<<endl;
+               cin>>age;}
+          void getinfo()   
+              {cout<<name;
+               cout<<age;}
+                
+};
+class student:public person
+      {protected:
+            int roll;
+       public:
+          void setroll()
+              {cout<<"enter roll"<<endl;
+               cin>>roll; }
+          void getroll()   
+              {cout<<roll<<endl;}       
+      };
+int main()
+     { student obj;
+       obj.setinfo();
+       obj.setroll();
+       obj.getinfo();
+       obj.getroll();
+     }
+
+
+_______________still better ___________
+
+
+
+#include<iostream>
+using namespace std;
+class person{
+    protected:
+          string name;
+          int age;
+    public:
+          void setinfo()
+              {cout<<"enter name"<<endl;
+               cin>>name;
+               cout<<"enter age"<<endl;
+               cin>>age;}
+          
+                
+};
+class student:public person
+      {protected:
+            int roll;
+       public:
+          void setroll()
+              {cout<<"enter roll"<<endl;
+               cin>>roll; }
+          void get()   
+              {cout<<name;
+               cout<<age;
+               cout<<roll<<endl;}     };
+int main()
+     { student obj;
+       obj.setinfo();
+       obj.setroll();
+       obj.get();
+       
+     }
+
+____________________________________________________________________
