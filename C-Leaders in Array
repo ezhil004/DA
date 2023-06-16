@@ -1,0 +1,52 @@
+question:Write a function in C to print all the LEADERS in the array. An element is a leader if it is greater than all the elements to its right side. Special rule  For example in the array {16, 17, 4, 3, 5, 2}, Leaders are 17, 5 and 2. Special rule says that the rightmost element in the array is always a leader. For example in the array {16, 17, 4, 3, 5, 2},  Leaders are 17, 5 and 2.
+
+
+Input
+6
+16
+17
+4
+3
+5
+2
+Expected output                              
+Leaders are 17, 5, 2
+
+
+
+#___________________________________finale__________________________________________________
+#include <stdio.h>
+
+void print_leaders(int arr[], int size) {
+    int i, j, flag;
+    printf("Leaders are ");
+    for(i = 0; i < size; i++) {
+        flag = 1;
+        for(j = i+1; j < size; j++) {
+            if(arr[i] <= arr[j]) { // check if current element is less than any element to its right
+                flag = 0;
+                break;
+            }
+        }
+        if(flag == 1) {
+            printf("%d", arr[i]);
+            if(i!=size-1)
+                   {printf(", ");}
+        }
+    }
+}
+
+int main() {
+    int k,i = 0, arr[100];
+    while(1) {
+        scanf("%d", &k);
+        arr[i++] = k;
+        if(k == 2) {
+            break;
+        }
+    }
+    int size = i;
+    print_leaders(arr, size);
+    return 0;
+}
+
