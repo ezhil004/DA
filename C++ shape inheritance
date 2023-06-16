@@ -1,0 +1,44 @@
+shapes using inheritance
+#include <iostream>
+using namespace std;
+
+class circle{
+    protected:
+         int radius;
+    public: 
+        void getr()
+           {   cout<<"enter the radiii";  
+               cin>>radius;
+           }
+        void areac()
+               {cout<<(3.14*3.14*radius);}   
+};       
+class rectangle{
+    protected:
+           int len,bre;
+    public: 
+        void getlen()
+           {   cout<<"enter the len";  
+               cin>>len;  
+           }
+        void getbre()
+           {   cout<<"enter the bre";  
+               cin>>bre;  
+           }    
+        void arear()
+               {cout<<len*bre;}
+};
+class cyclinder:public circle,public rectangle{
+            public:
+               void areacy()
+               {cout<<"AREA OF CYCLINDER "<<len*bre*radius;}
+};
+    
+
+int main() {
+        cyclinder obj;
+        obj.getlen();
+        obj.getbre();
+        obj.getr();
+        obj.areacy();
+}
