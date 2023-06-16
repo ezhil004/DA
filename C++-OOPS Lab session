@@ -1,0 +1,137 @@
+OOPS Lab session
+17-05-2023
+________________________________________
+
+1.	Bank Account Management Create a BankAccount class that simulates a bank account. The class should have methods to deposit, withdraw, and check the account balance. Implement the necessary constructors and accessors. Write a program to demonstrate the functionality of the BankAccount class.
+Test cases:
+Custom Test Cases:
+i.	 Test depositing and withdrawing funds from the account.
+•	Deposit: $1000, Withdraw: $500
+•	Expected Account Balance: $500
+ii.	 Test withdrawing more funds than the account balance.
+•	Deposit: $1000, Withdraw: $1500
+•	Expected Result: Error message indicating insufficient funds.
+CODE:
+#include <iostream>
+using namespace std;
+class student 
+       {private:
+            int deposit;
+            int withdraw;
+            static int balance;
+        public:        
+            void getset()
+                     {   cout<<"enter deposit amount"<<endl;
+                         cin>>deposit;
+                         cout<<"enter withdraw amount"<<endl;
+                         cin>>withdraw;
+                         balance+=deposit-withdraw;
+                         
+                     }
+            void showme() 
+                    {cout<<"deposit :"<<deposit<<endl;
+                     cout<<"withdraw :"<<withdraw<<endl;
+                     if (balance>=0)
+                     {   cout<<"balance :"<<balance<<endl;}
+                     else
+                        {cout<<"Error message indicating insufficient funds."<<endl;}
+                    }
+       };  
+int student::balance = 0;        
+int main()
+    {class student a;
+     class student b;
+     a.getset();
+     a.showme();
+     b.getset();
+     b.showme();
+    }
+
+2.	Question: Create a class called Stack that represents a stack data structure. It should have methods push(), pop(), and isEmpty() to add elements, remove elements, and check if the stack is empty, respectively. Implement the stack using an array. Write a program that demonstrates the functionality of the Stack class by performing push and pop operations.
+
+Test cases:
+
+Stack Operations:
+1. Push
+2. Pop
+3. Exit
+Enter your choice: 1
+Enter element to push: 10
+Pushed element: 10
+
+Stack Operations:
+1. Push
+2. Pop
+3. Exit
+Enter your choice: 1
+Enter element to push: 20
+Pushed element: 20
+
+Stack Operations:
+1. Push
+2. Pop
+3. Exit
+Enter your choice: 2
+Popped element: 20
+
+Stack Operations:
+1. Push
+2. Pop
+3. Exit
+Enter your choice: 2
+Popped element: 10
+
+Stack Operations:
+1. Push
+2. Pop
+3. Exit
+Enter your choice: 2
+Stack is empty. Cannot pop element.
+#include <iostream>
+using namespace std;
+class Stack {
+private:
+    int stk[100];
+    int index;
+public:
+    Stack() {
+        index = 0; // initialize index to 0
+        cout << "Stack created." << endl;
+    }
+    ~Stack() {
+        cout << "Stack destroyed." << endl;
+    }
+    void push() {
+        int n;
+        cout << "Enter element to push: ";
+        cin >> n;
+        stk[index++] = n;
+        cout << "Pushed element is: " << n << endl;
+    }
+    void pop() {
+        if (index > 0) {
+            index = index - 1;
+            cout << "Popped element is: " << stk[index] << endl;
+        } else {
+            cout << "Stack is empty. Cannot pop element." << endl;
+        }
+    }
+};
+
+int main() {
+    int x = 0;
+    Stack s1;
+
+    while (x != 3) {
+        cout << "Stack Operations:\n1. Push\n2. Pop\n3. Exit\nEnter your choice: ";
+        cin >> x;
+
+        if (x == 1) {
+            s1.push();
+        } else if (x == 2) {
+            s1.pop();
+        }
+    }
+
+    return 0;
+}
